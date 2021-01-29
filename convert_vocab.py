@@ -52,6 +52,7 @@ def make_notes(vocab, dict_tsv, include_nodef=False):
         usage_timestamp = None
         for entry in entries:
             word = entry['word']
+            if word is None: continue
             _usage = entry['usage'].replace(word, f'<strong>{word}</strong>').strip()
             usage = f'<blockquote>{_usage}<small>{entry["title"]}</small></blockquote>'
             usage_all += usage
